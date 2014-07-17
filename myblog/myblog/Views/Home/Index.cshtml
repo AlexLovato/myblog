@@ -1,0 +1,45 @@
+﻿@model IEnumerable<myblog.Models.post>
+
+@{
+    ViewBag.Title = "Index";
+}
+@*if there are items in our list, then display*@
+@if (Model.Any())
+{
+    foreach (var post in Model)
+    {
+        <div class="post">
+            <div class="title">
+                <h3>@post.title</h3>
+                <span> By: @post.author.name on @post.date.ToShortDateString()</span>
+            </div>
+            <div class="body">
+              
+                @*If the post has an image, show it!*@
+                @if (!string.IsNullOrEmpty(post.imageURL))
+                {
+                    <img src="@post.imageURL" />
+                }
+                @post.body
+               
+            </div>
+            <div class="likes">
+                @post.likes likes
+            </div>
+            <div class="comments">
+                @foreach (var comment in post.comments)
+                {
+                    
+                    <div class="comment">
+                        <span class="commenttitle">by: @comment.name on @comment.date</span>
+                        <div>@comment.body</div>
+                    </div>
+                }
+            </div>
+        </div>
+    }
+}
+else
+{
+    <div>No posts yet!</div>
+}
