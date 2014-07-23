@@ -29,3 +29,4 @@ C:\Users\dt\Documents\GitHub\myblog\myblog\myblog\bin\System.Web.WebPages.Deploy
 C:\Users\dt\Documents\GitHub\myblog\myblog\myblog\bin\System.Web.WebPages.Razor.xml
 C:\Users\dt\Documents\GitHub\myblog\myblog\myblog\obj\Debug\myblog.dll
 C:\Users\dt\Documents\GitHub\myblog\myblog\myblog\obj\Debug\myblog.pdb
+C:\Users\dt\Documents\GitHub\myblog\myblog\myblog\obj\Debug\myblog.csprojResolveAssemblyReference.cache

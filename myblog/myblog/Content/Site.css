@@ -3,6 +3,7 @@
 font-family: "lucida grande", tahoma, verdana, arial, sans-serif;  
     color: #ffffff;
     background-color: #43609c;
+    display:block;
 }
 
 header, footer, nav, section {
@@ -15,7 +16,7 @@ header, footer, nav, section {
 /* Styles for basic forms
 -----------------------------------------------------------*/
 fieldset {
-    border: 1px solid #ddd;
+    border: 1px solid #43609c;
     padding: 0 1.4em 1.4em 1.4em;
     margin: 0 0 1.5em 0;
 }
@@ -63,11 +64,26 @@ textarea {
 }
 #fbtab  
 {  
+     /*margin-left: auto;
+    margin-right: auto;*/
+  width:28%;
     padding: 8px;  
     background-color: #d8dfea;  
     color: #3b5998;  
     font-weight: bold;  
-    float: left;  
-    margin-right: 4px;  
+    /*float: left;  
+    margin-right: 4px;*/  
     text-decoration: none;  
 } 
+/*make the likes class look like a link*/
+.likes
+{
+    /*makes the pointer finger come up over mouse over*/
+    cursor:pointer;
+    text-decoration:underline;
+}
+/*#body {
+    margin-left: auto;
+    margin-right: auto;
+    width: 6em;
+}*/

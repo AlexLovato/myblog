@@ -18,23 +18,31 @@
                 @*If the post has an image, show it!*@
                 @if (!string.IsNullOrEmpty(post.imageURL))
                 {
-                    <img src="@post.imageURL" />
+                    <img src="@post.imageURL" width="50%" />
                 }
+                &nbsp;
+
                 @post.body
                
             </div>
-            <div class="likes">
+            <div class="likes" data-id="@post.postID">
                 @post.likes likes
             </div>
-            <div class="comments">
-                @foreach (var comment in post.comments)
+            
+            <div class="commentContainer">
+                @if (post.comments.Any()) { 
+                foreach (var comment in post.comments)
                 {
-                    
-                    <div class="comment">
-                        <span class="commenttitle">by: @comment.name on @comment.date</span>
-                        <div>@comment.body</div>
-                    </div>
+
+                    @Html.Partial("comment", comment)
                 }
+                }else {
+                <div>write a comment</div>
+                }
+                <div class="addComment">
+                    @*pass in a blank comment object, with the psot ID set*@
+                    @Html.Partial("addComment", new myblog.Models.comment() { postID = post.postID })
+                </div>
             </div>
         </div>
     }

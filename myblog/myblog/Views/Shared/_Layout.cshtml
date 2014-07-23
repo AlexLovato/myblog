@@ -9,15 +9,15 @@
 </head>
 <body>
     <header>
-        <h1>BACE FOOK</h1>
+        <h1>bacefook</h1>
         @*if request.isauthenticated is true, the user is logged in*@ 
         @if (Request.IsAuthenticated)
         {
             <div id="fbtab">
                 Welcome @User.Identity.Name
          |  <a href="@Url.Action("Logout", "Account")">Logout</a>
-         |  <a href="@Url.Action("Create", "Post")">WRITE A GODDAMN POST YOU STUPID LOSER</a>
-         |       <a href="@Url.Action("Index", "Home")">GO THE FUCK HOME</a>
+         |  <a href="@Url.Action("Create", "Post")">Create a Post</a>
+         |       <a href="@Url.Action("Index", "Home")">Home</a>
             </div>
         }
         else

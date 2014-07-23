@@ -46,5 +46,43 @@ namespace myblog.Controllers
             db.SaveChanges();
             return RedirectToAction("Index", "Post");
         }
+        //get: /post/delete/{id}
+        [HttpGet]
+        public ActionResult Delete(int id)
+        {
+            Models.post postToDelete = db.posts.Find(id);
+            return View(postToDelete);
+        }
+        //Post: post/delete/{id}
+        //using actionname("delete") so the URL stays the same, but the function can have a different name
+        [HttpPost, ActionName("Delete")]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            //get the post from the db
+            Models.post postToDelete = db.posts.Find(id);
+            db.posts.Remove(postToDelete);
+            db.SaveChanges();
+            return RedirectToAction("Index", "Post");
+
+        }
+        //get post/edit/id
+        [HttpGet]
+        public ActionResult Edit(int id)
+        {
+            Models.post postToEdit = db.posts.Find(id);
+            //pass our post to edit to View
+            return View(postToEdit);
+        }
+        [HttpPost]
+        public ActionResult Edit(Models.post postToEdit)
+        {
+            //set the post to be upddated
+            db.Entry(postToEdit).State = System.Data.EntityState.Modified;
+            db.SaveChanges();
+            return RedirectToAction("Index", "Post");
+        }
+       
+            
+        
     }
 }

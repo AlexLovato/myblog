@@ -1,0 +1,62 @@
+﻿@model myblog.Models.comment
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>comment</legend>
+
+        @Html.HiddenFor(model => model.commentID)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.body)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.body)
+            @Html.ValidationMessageFor(model => model.body)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.date)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.date)
+            @Html.ValidationMessageFor(model => model.date)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.name)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.name)
+            @Html.ValidationMessageFor(model => model.name)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.postID, "post")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("postID", String.Empty)
+            @Html.ValidationMessageFor(model => model.postID)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
